@@ -30,7 +30,7 @@ def bootstrap(data):
     '''
 
     N = data.shape[0]
-    N_bootstrap = 100
+    N_bootstrap = 10000
     H = np.zeros(N_bootstrap)
     for i in range(N_bootstrap):
         s = np.random.randint(low=0, high=N, size=N)
@@ -70,8 +70,7 @@ a1 = 5
 # Minimizacion del chi-cuadrado caso b
 resultado_caso_b = leastsq(func_a_minimizar, a1, args=(v, d))
 print "Status para b: ", resultado_caso_b[1]
-# En este caso el parámetro que optimizamos fue 1/Ho, pero Ho es el
-# valor que buscamos
+# En este caso el parámetro que optimizamos fue 1/Ho, por lo tanto lo invertimos para obtener Ho
 Ho_b = 1 / resultado_caso_b[0]
 print "mejor fit para Ho, caso b: ", Ho_b
 
